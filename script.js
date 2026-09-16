@@ -1283,7 +1283,7 @@ try {
 
     const resposta =
         await fetch(
-            "https://moonlit-store.onrender.com/api/chat",
+            "https://moonlit-store.onrender.com",
             {
                 method: "POST",
 
