@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Moonlit Store</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- NEVE -->
+
+<div id="snow"></div>
+
+
+<!-- ESTRELAS -->
+
+<div id="stars"></div>
+
+
+<!-- TELA DE CARREGAMENTO -->
+
+<div id="loading-screen">
+
+    <img
+        src="images/logo.png"
+        alt="Moonlit Store"
+    >
+
+    <p>
+        Carregando...
+    </p>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo-area">
+
+        <img
+            src="images/logo.png"
+            alt="Moonlit Store"
+        >
+
+    </div>
+
+
+    <nav>
+
+        <a href="#inicio">
+            Início
+        </a>
+
+        <a href="#produtos">
+            Produtos
+        </a>
+
+        <a href="#sobre">
+            Sobre
+        </a>
+
+    </nav>
+
+
+    <button
+        class="cart-button"
+        onclick="abrirCarrinho()"
+    >
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span id="cart-count">
+            0
+        </span>
+
+    </button>
+
+</header>
+
+
+<!-- CONTEÚDO -->
+
+<main>
+
+
+    <!-- INÍCIO -->
+
+    <section
+        id="inicio"
+        class="hero"
+    >
+
+        <div>
+
+            <h2>
+                Bem-vindo à Moonlit Store 🌙
+            </h2>
+
+            <p>
+                Encontre combos/x-alls incríveis em um só lugar.
+            </p>
+
+
+            <a
+                href="#produtos"
+                class="button"
+            >
+                Ver produtos
+            </a>
+
+
+            <button
+                type="button"
+                class="assistant-button"
+                onclick="abrirAssistente()"
+            >
+
+                <i class="fa-solid fa-sparkles"></i>
+
+                Assistente Moonlit
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUTOS -->
+
+    <section
+        id="produtos"
+        class="products-section"
+    >
+
+        <h2>
+            ✨ Catálogo
+        </h2>
+
+
+        <!-- CATEGORIAS -->
+
+        <div class="categories">
+
+            <button
+                class="category-button active"
+                onclick="selecionarCategoria('Combos', this)"
+            >
+                📦 Combos
+            </button>
+
+
+            <button
+                class="category-button"
+                onclick="selecionarCategoria('X-alls', this)"
+            >
+                ✨ X-alls
+            </button>
+
+        </div>
+
+
+        <!-- ORDENAR PRODUTOS -->
+
+        <div class="ordenar-produtos">
+
+            <label for="ordenar">
+                Ordenar:
+            </label>
+
+
+            <select
+                id="ordenar"
+                onchange="ordenarProdutos(this.value)"
+            >
+
+                <option value="padrao">
+                    Padrão
+                </option>
+
+                <option value="menor-preco">
+                    Menor preço
+                </option>
+
+                <option value="maior-preco">
+                    Maior preço
+                </option>
+
+                <option value="a-z">
+                    A-Z
+                </option>
+
+                <option value="z-a">
+                    Z-A
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- PRODUTOS -->
+
+        <div
+            class="products"
+            id="products"
+        ></div>
+
+    </section>
+
+
+    <!-- SOBRE -->
+
+    <section
+        id="sobre"
+        class="about"
+    >
+
+        <div class="about-content">
+
+
+            <h2>
+                Sobre a Moonlit Store
+            </h2>
+
+
+            <div class="about-category">
+
+                <h3>
+                    📜 Termos
+                </h3>
+
+                <p>
+                    Ao realizar uma compra, o cliente declara estar
+                    de acordo com as informações do produto, valores
+                    e condições apresentados. É responsabilidade do
+                    cliente ler todas as informações antes de confirmar
+                    o pedido.
+                </p>
+
+            </div>
+
+
+            <div class="about-category">
+
+                <h3>
+                    🛍️ Política de compras
+                </h3>
+
+                <p>
+                    Antes de realizar a compra, confira atentamente
+                    o produto escolhido, sua descrição e seu valor.
+                    Após a confirmação do pedido, a compra será
+                    encaminhada para atendimento.
+                </p>
+
+            </div>
+
+
+            <div class="about-category">
+
+                <h3>
+                    💳 Pagamentos
+                </h3>
+
+                <p>
+                    As formas de pagamento disponíveis serão informadas
+                    durante o atendimento. O pedido somente será
+                    confirmado após a identificação do pagamento.
+                </p>
+
+            </div>
+
+
+            <div class="about-category">
+
+                <h3>
+                    📦 Entrega
+                </h3>
+
+                <p>
+                    Após a confirmação do pagamento, o pedido será
+                    preparado e entregue conforme as condições
+                    informadas durante o atendimento.
+                </p>
+
+            </div>
+
+
+            <div class="about-category">
+
+                <h3>
+                    🔄 Trocas e reembolsos
+                </h3>
+
+                <p>
+                    Em caso de problemas relacionados ao pedido,
+                    entre em contato com a Moonlit Store pelo canal
+                    utilizado para realizar a compra. Cada situação
+                    será analisada individualmente.
+                </p>
+
+            </div>
+
+
+            <div class="about-category">
+
+                <h3>
+                    📱 Contato
+                </h3>
+
+                <p>
+                    Para dúvidas, pedidos ou informações, entre em
+                    contato conosco através das redes sociais
+                    disponíveis no momento da compra.
+                </p>
+
+            </div>
+
+
+            <div class="about-category">
+
+                <p>
+                    <strong>
+                        OBS:
+                    </strong>
+
+                    Esse site é apenas para comprar combos e x-alls.
+                    Caso queira comprar algum set, entre em um dos
+                    nossos meios de comunicação.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ASSISTENTE MOONLIT -->
+
+<div
+    id="assistente-overlay"
+    class="assistente-overlay"
+    onclick="fecharAssistente()"
+>
+
+    <div
+        class="assistente"
+        onclick="event.stopPropagation()"
+    >
+
+
+        <div class="assistente-header">
+
+            <div>
+
+                <h2>
+                    ✨ Assistente Moonlit
+                </h2>
+
+                <span>
+                    Como posso ajudar?
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                onclick="fecharAssistente()"
+                class="assistente-fechar"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="assistente-mensagens"
+            class="assistente-mensagens"
+        >
+
+            <div class="mensagem assistente-msg">
+
+                Olá! 🌙 Sou a Assistente Moonlit.
+                Como posso ajudar?
+
+            </div>
+
+        </div>
+
+
+        <div class="assistente-input">
+
+            <input
+                type="text"
+                id="assistente-input"
+                placeholder="Digite sua dúvida..."
+                autocomplete="off"
+            >
+
+
+            <button
+                type="button"
+                onclick="enviarMensagemAssistente()"
+            >
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Moonlit Store
+    </p>
+
+</footer>
+
+
+<!-- MODAL DE COMPRA -->
+
+<div
+    id="modal-compra"
+    class="modal-overlay"
+    onclick="fecharCompra()"
+>
+
+    <div
+        class="modal-compra"
+        onclick="event.stopPropagation()"
+    >
+
+
+        <button
+            class="fechar-modal"
+            onclick="fecharCompra()"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            🛍️ Comprar
+        </h2>
+
+
+        <p>
+            Selecione qual rede social deseja fazer a compra.
+        </p>
+
+
+        <p
+            id="nome-produto-compra"
+            class="produto-selecionado"
+        ></p>
+
+
+        <div class="redes-sociais">
+
+
+            <!-- DISCORD -->
+
+            <a
+                href="#"
+                class="rede discord"
+                id="discord-button"
+            >
+
+                <i class="fa-brands fa-discord"></i>
+
+                <span>
+                    Discord
+                </span>
+
+            </a>
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="#"
+                id="whatsapp-link"
+                class="rede whatsapp"
+                target="_blank"
+            >
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <span>
+                    WhatsApp
+                </span>
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://www.instagram.com/moonlit_.store/"
+                class="rede instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <i class="fa-brands fa-instagram"></i>
+
+                <span>
+                    Instagram
+                </span>
+
+            </a>
+
+
+            <!-- TIKTOK -->
+
+            <a
+                href="https://www.tiktok.com/@moonlit_.store"
+                class="rede"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="
+                    background: rgba(0, 0, 0, 0.2) !important;
+                    color: #000000 !important;
+                    text-decoration: none !important;
+                "
+            >
+
+                <i
+                    class="fa-brands fa-tiktok"
+                    style="
+                        color: #000000 !important;
+                    "
+                ></i>
+
+
+                <span
+                    style="
+                        color: #000000 !important;
+                    "
+                >
+                    TikTok
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FUNDO DO CARRINHO -->
+
+<div
+    id="cart-overlay"
+    class="cart-overlay"
+    onclick="fecharCarrinho()"
+></div>
+
+
+<!-- CARRINHO -->
+
+<aside
+    id="cart-panel"
+    class="cart-panel"
+>
+
+
+    <div class="cart-header">
+
+        <h2>
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            Meu carrinho
+
+        </h2>
+
+
+        <button
+            class="close-cart"
+            onclick="fecharCarrinho()"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <!-- ITENS -->
+
+    <div
+        id="cart-items"
+        class="cart-items"
+    ></div>
+
+
+    <!-- RODAPÉ DO CARRINHO -->
+
+    <div class="cart-footer">
+
+
+        <div class="cart-total">
+
+            <span>
+                Total:
+            </span>
+
+            <strong id="cart-total">
+                R$ 0,00
+            </strong>
+
+        </div>
+
+
+        <!-- LIMPAR CARRINHO -->
+
+        <button
+            type="button"
+            class="limpar-carrinho"
+            onclick="limparCarrinho()"
+        >
+
+            <i class="fa-solid fa-trash"></i>
+
+            Limpar carrinho
+
+        </button>
+
+
+        <!-- COMPRAR -->
+
+        <button
+            class="checkout-button"
+            onclick="comprarCarrinho()"
+        >
+
+            Comprar
+
+        </button>
+
+
+    </div>
+
+</aside>
+
+
+<!-- AVISO DE ITEM ADICIONADO -->
+
+<div
+    id="cart-toast"
+    class="cart-toast"
+>
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    Item adicionado ao carrinho!
+
+</div>
+
+
+<!-- AVISO DO DISCORD -->
+
+<div
+    id="discord-toast"
+    class="cart-toast discord-toast"
+>
+
+    <i class="fa-solid fa-circle-xmark"></i>
+
+    No momento, ainda não criamos o servidor...
+
+</div>
+
+
+<!-- SCRIPT -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
